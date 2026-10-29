@@ -1,6 +1,7 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using System;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -31,6 +32,31 @@ namespace MohawkGame2D
         float y4 = 520;
         float y5 = 530;
 
+        //Generate Rock class
+        Rock rockone = new Rock();
+        Rock rocktwo = new Rock();
+        Rock rockthree = new Rock();
+
+        //Player Reset Variables
+        float resetplayerX1 = 340;
+        float resetplayerX2 = 350;
+        float resetplayerX3 = 380;
+        float resetplayerX4 = 390;
+        float resetplayerY1 = 480;
+        float resetplayerY2 = 530;
+        float resetplayerY3 = 470;
+        float resetplayerY4 = 520;
+        float resetplayerY5 = 530;
+
+        float playerX1 = 340;
+        float playerX2 = 350;
+        float playerX3 = 380;
+        float playerX4 = 390;
+        float playerY1 = 480;
+        float playerY2 = 530;
+        float playerY3 = 470;
+        float playerY4 = 520;
+        float playerY5 = 530;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -40,6 +66,10 @@ namespace MohawkGame2D
             Window.SetSize(800, 600);
             Window.ClearBackground(58, 105, 61);
             Window.TargetFPS = 60;
+
+            rockone.Setup();
+            rocktwo.Setup();
+            rockthree.Setup();
         }
 
         /// <summary>
@@ -176,13 +206,6 @@ namespace MohawkGame2D
                 Draw.Square(390, 150, 10);
             }
 
-            //Caught Walking Reset
-
-            {
-                //Reset Player Position
-                //Reset Big Bad Wolf
-            }
-
             //Face Away if Timer Runs Out
             if (timeBeforeTurning <= 0)
             {
@@ -312,6 +335,59 @@ namespace MohawkGame2D
                 Draw.SetFillColor(Color.Black);
                 Draw.Square(370, 150, 10);
                 Draw.Square(390, 150, 10);
+
+                if (Input.IsKeyboardKeyDown(KeyboardKey.W) == true)
+                {
+                    //Reset Player Position
+                    playerX1 = resetplayerX1;
+                    playerX2 = resetplayerX2;
+                    playerX3 = resetplayerX3;
+                    playerX4 = resetplayerX4;
+                    playerY1 = resetplayerY1;
+                    playerY2 = resetplayerY2;
+                    playerY3 = resetplayerY3;
+                    playerY4 = resetplayerY4;
+                    playerY5 = resetplayerY5;
+                }
+                if (Input.IsKeyboardKeyDown(KeyboardKey.A) == true)
+                {
+                    //Reset Player Position
+                    playerX1 = resetplayerX1;
+                    playerX2 = resetplayerX2;
+                    playerX3 = resetplayerX3;
+                    playerX4 = resetplayerX4;
+                    playerY1 = resetplayerY1;
+                    playerY2 = resetplayerY2;
+                    playerY3 = resetplayerY3;
+                    playerY4 = resetplayerY4;
+                    playerY5 = resetplayerY5;
+                }
+                if (Input.IsKeyboardKeyDown(KeyboardKey.S) == true)
+                {
+                    //Reset Player Position
+                    playerX1 = resetplayerX1;
+                    playerX2 = resetplayerX2;
+                    playerX3 = resetplayerX3;
+                    playerX4 = resetplayerX4;
+                    playerY1 = resetplayerY1;
+                    playerY2 = resetplayerY2;
+                    playerY3 = resetplayerY3;
+                    playerY4 = resetplayerY4;
+                    playerY5 = resetplayerY5;
+                }
+                if (Input.IsKeyboardKeyDown(KeyboardKey.D) == true)
+                {
+                    //Reset Player Position
+                    playerX1 = resetplayerX1;
+                    playerX2 = resetplayerX2;
+                    playerX3 = resetplayerX3;
+                    playerX4 = resetplayerX4;
+                    playerY1 = resetplayerY1;
+                    playerY2 = resetplayerY2;
+                    playerY3 = resetplayerY3;
+                    playerY4 = resetplayerY4;
+                    playerY5 = resetplayerY5;
+                }
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.W) == true)
@@ -364,6 +440,10 @@ namespace MohawkGame2D
 
             //Make Player Body
             Draw.Rectangle(x2, y2, 30, 40);
+
+            rockone.Update();
+            rocktwo.Update();
+            rockthree.Update();
         }
     }
 
