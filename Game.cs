@@ -1,7 +1,6 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using System;
 using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -58,8 +57,6 @@ namespace MohawkGame2D
         float playerY4 = 520;
         float playerY5 = 530;
 
-        Raindrop[] raindrops = new Raindrop[500];
-
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -72,12 +69,6 @@ namespace MohawkGame2D
             rockone.Setup();
             rocktwo.Setup();
             rockthree.Setup();
-
-            for (int i = 0; i < 500; i++)
-            {
-                raindrops[i] = new Raindrop();
-                raindrops[i].Setup();
-            }
         }
 
         /// <summary>
@@ -454,10 +445,6 @@ namespace MohawkGame2D
             rockthree.Update();
 
             //Make Rain
-            for (int i = 0; i < 10; i++)
-            {
-                raindrops[i].Update();
-            }
         }
     }
 
