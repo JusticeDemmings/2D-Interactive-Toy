@@ -57,6 +57,8 @@ namespace MohawkGame2D
         float playerY4 = 520;
         float playerY5 = 530;
 
+        Raindrop[] raindrops = new Raindrop[250];
+
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -69,6 +71,12 @@ namespace MohawkGame2D
             rockone.Setup();
             rocktwo.Setup();
             rockthree.Setup();
+
+            for (int i = 0; i += 1)
+            {
+                raindrops[i] = new Raindrop();
+                raindrops[i].Setup();
+            }
         }
 
         /// <summary>
@@ -389,6 +397,7 @@ namespace MohawkGame2D
                 }
             }
 
+            //Player Movement
             if (Input.IsKeyboardKeyDown(KeyboardKey.W) == true)
             {
                 //If it is, then:
@@ -445,6 +454,10 @@ namespace MohawkGame2D
             rockthree.Update();
 
             //Make Rain
+            for (int i = 0; i++)
+            {
+                raindrops[i].Update();
+            }
         }
     }
 
