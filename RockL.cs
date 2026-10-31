@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace MohawkGame2D;
 
-public class Rock
+public class RockL
 {
 	float x1;
 	float x2;
@@ -14,17 +14,19 @@ public class Rock
 
 	public void Setup()
 	{
-		x1 = Random.Float(0, 270);
-		x2 = Random.Float(x1 + 30);
-		x3 = Random.Float(x1 + 70);
-		x4 = Random.Float(x1 + 90);
-		y1 = Random.Float(x1 - 40);
-		y2 = Random.Float(x1 - 40);
+		x1 = Random.Float(0, 170);
+		x2 = x1 + 30;
+		x3 = x1 + 70;
+		x4 = x1 + 100;
+		y1 = Random.Float(50, 550);
+		y2 = y1 - 40;
+
+		//do (first coordinate, coordinate plus by how much where the next is location
     }
 
 	public void Update()
 	{
-		Draw.SetLineSize(0);
+		Draw.SetLineSize(1);
 		Draw.SetFillColor(110, 113, 117);
 		Draw.Quad(x1, y1, x2, y2, x3, y2, x4, y1);
 	}

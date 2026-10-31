@@ -32,9 +32,8 @@ namespace MohawkGame2D
         float y5 = 530;
 
         //Generate Rock class
-        Rock rockone = new Rock();
-        Rock rocktwo = new Rock();
-        Rock rockthree = new Rock();
+        RockL[] rocksL = new RockL[3];
+        RockR[] rocksR = new RockR[3];
 
         //Player Reset Variables
         float resetplayerX1 = 340;
@@ -47,35 +46,26 @@ namespace MohawkGame2D
         float resetplayerY4 = 520;
         float resetplayerY5 = 530;
 
-        float playerX1 = 340;
-        float playerX2 = 350;
-        float playerX3 = 380;
-        float playerX4 = 390;
-        float playerY1 = 480;
-        float playerY2 = 530;
-        float playerY3 = 470;
-        float playerY4 = 520;
-        float playerY5 = 530;
-
-        Raindrop[] raindrops = new Raindrop[250];
-
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
+            Window.SetTitle("Little Red and Mr. Big Bad Wolf");
             Window.SetSize(800, 600);
             Window.ClearBackground(58, 105, 61);
             Window.TargetFPS = 60;
 
-            rockone.Setup();
-            rocktwo.Setup();
-            rockthree.Setup();
-
-            for (int i = 0; i += 1)
+            for (int i = 0; i < rocksL.Length; i += 1)
             {
-                raindrops[i] = new Raindrop();
-                raindrops[i].Setup();
+              rocksL[i] = new RockL();
+              rocksL[i].Setup();
+            }
+
+            for (int i = 0; i < rocksR.Length; i += 1)
+            {
+                rocksR[i] = new RockR();
+                rocksR[i].Setup();
             }
         }
 
@@ -217,10 +207,10 @@ namespace MohawkGame2D
             if (timeBeforeTurning <= 0)
             {
                 isFacingAway = true;
-                timeBeforeTurning = Random.Float(1, 2);
+                timeBeforeTurning = Random.Float(1, 3);
             }
 
-            if (timeBeforeTurning < 0.400f)
+            if (timeBeforeTurning < 0.300f)
             {
                 //Make Wolf
                 //Inside of ears
@@ -343,57 +333,57 @@ namespace MohawkGame2D
                 Draw.Square(370, 150, 10);
                 Draw.Square(390, 150, 10);
 
+                //Reset Player Position When Caught
                 if (Input.IsKeyboardKeyDown(KeyboardKey.W) == true)
                 {
-                    //Reset Player Position
-                    playerX1 = resetplayerX1;
-                    playerX2 = resetplayerX2;
-                    playerX3 = resetplayerX3;
-                    playerX4 = resetplayerX4;
-                    playerY1 = resetplayerY1;
-                    playerY2 = resetplayerY2;
-                    playerY3 = resetplayerY3;
-                    playerY4 = resetplayerY4;
-                    playerY5 = resetplayerY5;
+                    x1 = resetplayerX1;
+                    x2 = resetplayerX2;
+                    x3 = resetplayerX3;
+                    x4 = resetplayerX4;
+                    y1 = resetplayerY1;
+                    y2 = resetplayerY2;
+                    y3 = resetplayerY3;
+                    y4 = resetplayerY4;
+                    y5 = resetplayerY5;
                 }
+
                 if (Input.IsKeyboardKeyDown(KeyboardKey.A) == true)
                 {
-                    //Reset Player Position
-                    playerX1 = resetplayerX1;
-                    playerX2 = resetplayerX2;
-                    playerX3 = resetplayerX3;
-                    playerX4 = resetplayerX4;
-                    playerY1 = resetplayerY1;
-                    playerY2 = resetplayerY2;
-                    playerY3 = resetplayerY3;
-                    playerY4 = resetplayerY4;
-                    playerY5 = resetplayerY5;
+                    x1 = resetplayerX1;
+                    x2 = resetplayerX2;
+                    x3 = resetplayerX3;
+                    x4 = resetplayerX4;
+                    y1 = resetplayerY1;
+                    y2 = resetplayerY2;
+                    y3 = resetplayerY3;
+                    y4 = resetplayerY4;
+                    y5 = resetplayerY5;
                 }
+
                 if (Input.IsKeyboardKeyDown(KeyboardKey.S) == true)
                 {
-                    //Reset Player Position
-                    playerX1 = resetplayerX1;
-                    playerX2 = resetplayerX2;
-                    playerX3 = resetplayerX3;
-                    playerX4 = resetplayerX4;
-                    playerY1 = resetplayerY1;
-                    playerY2 = resetplayerY2;
-                    playerY3 = resetplayerY3;
-                    playerY4 = resetplayerY4;
-                    playerY5 = resetplayerY5;
+                    x1 = resetplayerX1;
+                    x2 = resetplayerX2;
+                    x3 = resetplayerX3;
+                    x4 = resetplayerX4;
+                    y1 = resetplayerY1;
+                    y2 = resetplayerY2;
+                    y3 = resetplayerY3;
+                    y4 = resetplayerY4;
+                    y5 = resetplayerY5;
                 }
+
                 if (Input.IsKeyboardKeyDown(KeyboardKey.D) == true)
                 {
-                    //Reset Player Position
-                    playerX1 = resetplayerX1;
-                    playerX2 = resetplayerX2;
-                    playerX3 = resetplayerX3;
-                    playerX4 = resetplayerX4;
-                    playerY1 = resetplayerY1;
-                    playerY2 = resetplayerY2;
-                    playerY3 = resetplayerY3;
-                    playerY4 = resetplayerY4;
-                    playerY5 = resetplayerY5;
+                    x1 = resetplayerX1;
+                    x2 = resetplayerX2;
+                    x3 = resetplayerX3;
+                    x4 = resetplayerX4;
+                    y1 = resetplayerY1;
+                    y2 = resetplayerY2;
+                    y3 = resetplayerY3;
+                    y4 = resetplayerY4;
+                    y5 = resetplayerY5;
                 }
             }
 
@@ -401,39 +391,39 @@ namespace MohawkGame2D
             if (Input.IsKeyboardKeyDown(KeyboardKey.W) == true)
             {
                 //If it is, then:
-                y1 -= 100 * Time.DeltaTime;
-                y2 -= 100 * Time.DeltaTime;
-                y3 -= 100 * Time.DeltaTime;
-                y4 -= 100 * Time.DeltaTime;
-                y5 -= 100 * Time.DeltaTime;
+                y1 -= 25 * Time.DeltaTime;
+                y2 -= 25 * Time.DeltaTime;
+                y3 -= 25 * Time.DeltaTime;
+                y4 -= 25 * Time.DeltaTime;
+                y5 -= 25 * Time.DeltaTime;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.A) == true)
             {
                 //If it is, then:
-                x1 -= 100 * Time.DeltaTime;
-                x2 -= 100 * Time.DeltaTime;
-                x3 -= 100 * Time.DeltaTime;
-                x4 -= 100 * Time.DeltaTime;
+                x1 -= 25 * Time.DeltaTime;
+                x2 -= 25 * Time.DeltaTime;
+                x3 -= 25 * Time.DeltaTime;
+                x4 -= 25 * Time.DeltaTime;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.S) == true)
             {
                 //If it is, then:
-                y1 += 100 * Time.DeltaTime;
-                y2 += 100 * Time.DeltaTime;
-                y3 += 100 * Time.DeltaTime;
-                y4 += 100 * Time.DeltaTime;
-                y5 += 100 * Time.DeltaTime;
+                y1 += 25 * Time.DeltaTime;
+                y2 += 25 * Time.DeltaTime;
+                y3 += 25 * Time.DeltaTime;
+                y4 += 25 * Time.DeltaTime;
+                y5 += 25 * Time.DeltaTime;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.D) == true)
             {
                 //If it is, then:
-                x1 += 100 * Time.DeltaTime;
-                x2 += 100 * Time.DeltaTime;
-                x3 += 100 * Time.DeltaTime;
-                x4 += 100 * Time.DeltaTime;
+                x1 += 25 * Time.DeltaTime;
+                x2 += 25 * Time.DeltaTime;
+                x3 += 25 * Time.DeltaTime;
+                x4 += 25 * Time.DeltaTime;
             }
 
             //Make player character
@@ -449,14 +439,14 @@ namespace MohawkGame2D
             //Make Player Body
             Draw.Rectangle(x2, y2, 30, 40);
 
-            rockone.Update();
-            rocktwo.Update();
-            rockthree.Update();
-
-            //Make Rain
-            for (int i = 0; i++)
+            for (int i = 0; i < rocksL.Length; i += 1)
             {
-                raindrops[i].Update();
+                rocksL[i].Update();
+            }
+
+            for (int i = 0; i < rocksR.Length; i += 1)
+            {
+                rocksR[i].Update();
             }
         }
     }
