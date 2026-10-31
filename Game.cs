@@ -31,9 +31,12 @@ namespace MohawkGame2D
         float y4 = 520;
         float y5 = 530;
 
-        //Generate Rock class
+        //Rock class arrays
         RockL[] rocksL = new RockL[3];
         RockR[] rocksR = new RockR[3];
+
+        //Raindrop class array
+        Raindrop[] raindrops = new Raindrop[100];
 
         //Player Reset Variables
         float resetplayerX1 = 340;
@@ -66,6 +69,12 @@ namespace MohawkGame2D
             {
                 rocksR[i] = new RockR();
                 rocksR[i].Setup();
+            }
+
+            for (int i = 0; i < raindrops.Length; i += 1)
+            {
+                raindrops[i] = new Raindrop();
+                raindrops[i].Setup();
             }
         }
 
@@ -447,6 +456,11 @@ namespace MohawkGame2D
             for (int i = 0; i < rocksR.Length; i += 1)
             {
                 rocksR[i].Update();
+            }
+
+            for (int i = 0; i < raindrops.Length; i += 1)
+            {
+                raindrops[i].Update();
             }
         }
     }

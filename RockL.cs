@@ -20,8 +20,6 @@ public class RockL
 		x4 = x1 + 100;
 		y1 = Random.Float(50, 550);
 		y2 = y1 - 40;
-
-		//do (first coordinate, coordinate plus by how much where the next is location
     }
 
 	public void Update()
